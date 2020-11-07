@@ -114,4 +114,88 @@ python .\manage.py runserver
 #  }
 #}
 
+# I just included the option to request a specific client. I can request by for ecample:
+{
+  someClientes(numDoc:"012", tipoNumDoc: "N"){
+    numDoc,
+    tipoNumDoc,
+    grupoRiesgo,
+    capacidadPago
+  }
+}
+
+# Graphql allows to request multiple structures in a same request. For example:
+Query:
+query multiple_request($numDoc:String, $tipoNumDoc:String){
+  someClientes(numDoc:$numDoc, tipoNumDoc: $tipoNumDoc){
+    numDoc,
+    grupoRiesgo
+  },
+  allClientes{
+    numDoc,
+    grupoRiesgo,
+    capacidadPago
+  }
+}
+
+Variables:
+{"numDoc":"012", "tipoNumDoc": "N"}
+
+Response:
+{
+  "data": {
+    "someClientes": [
+      {
+        "numDoc": "012",
+        "grupoRiesgo": "3"
+      }
+    ],
+    "allClientes": [
+      {
+        "numDoc": "678",
+        "grupoRiesgo": "1",
+        "capacidadPago": 1000000
+      },
+      {
+        "numDoc": "785",
+        "grupoRiesgo": "2",
+        "capacidadPago": 500000
+      },
+      {
+        "numDoc": "123",
+        "grupoRiesgo": "1",
+        "capacidadPago": 1500000
+      },
+      {
+        "numDoc": "987",
+        "grupoRiesgo": "8",
+        "capacidadPago": 200000
+      },
+      {
+        "numDoc": "012",
+        "grupoRiesgo": "3",
+        "capacidadPago": 5000000
+      }
+    ]
+  }
+}
+
+# In the software POSTMAN the request is done with these parameters:
+#POST
+http://127.0.0.1:8000/graphql/
+
+#body raw
+ {
+    "variables": {
+        "numDoc":"012",
+        "tipoNumDoc": "N"
+    },
+    "query": "query multiple_request($numDoc:String, $tipoNumDoc:String){ someClientes(numDoc:$numDoc, tipoNumDoc: $tipoNumDoc){ numDoc, grupoRiesgo }, allClientes{ numDoc, grupoRiesgo, capacidadPago } }"
+}
+
+
+
+
+
+
 pip freeze>requirements.txt
