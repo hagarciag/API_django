@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apiRest.views import ClienteView
+from apiRest.views import ClienteView, CreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apiRest/', ClienteView.as_view()),
-
+    path('apiRestView/', CreateView.as_view()),
 ]

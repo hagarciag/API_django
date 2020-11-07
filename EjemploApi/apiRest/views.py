@@ -29,3 +29,17 @@ class ClienteView (views.APIView):
                 return Response(serializer.data)
             # Error code 204 is returned because it is the code for non-content returned. Error codes: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
             return  Response({},status= status.HTTP_204_NO_CONTENT)
+
+# It is necessary to create a new VIEW because we are going to create a new POST method and only method type can be configured by VIEW.
+class CreateView (views.APIView):
+
+    def post(self, request, *args, **kwargs):
+        data= request.data
+        serializer= ClienteSerializer(data=data)
+        # The information received in the body is the expected?
+        if serializer.is_valid():
+            # The client is INSERTED in the database
+            serializer.save()
+            # The same information received of the client is return and the status
+            return Response(serializer.data, status.HTTP_202_ACCEPTED)
+        return Response(serializer.errors,status.HTTP_400_BAD_REQUEST)

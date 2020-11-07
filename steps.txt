@@ -70,6 +70,24 @@ python .\manage.py runserver
 #        "tipo_num_doc": "C"
 #}
 
+############# Create new client by an API
+# It is necessary to create a new View Class and the POST method to process the request in view.py
+# It also requiered to configure de URI of the new View in urls.py
+# After this we could make the request to create a new client by a JSON like this:
+#{
+#    "num_doc": "012",
+#    "tipo_num_doc": "N",
+#    "grupo_riesgo": "3",
+#    "capacidad_pago": 5000000.0
+#}
+
+# Response:
+#POST /apiRestView/
+#HTTP 202 Accepted
+#Allow: POST, OPTIONS
+#Content-Type: application/json
+#Vary: Accept
+
 
 
 pip freeze>requirements.txt
