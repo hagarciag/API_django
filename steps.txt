@@ -15,3 +15,12 @@ cd EjemploApi/
 
 python .\manage.py runserver
 
+#CTL+C to stop the server
+
+#Let's create the a first app for trditional REST using rest framework
+
+# help to see all the options
+python .\manage.py help
+
+# Let's use startapp to create the app "apiRest"
+python .\manage.py startapp apiRest
