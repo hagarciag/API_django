@@ -127,3 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Graphql configuration
+# It says that in the folder 'EjemploApi', file 'schema.py' and variable 'schema' 
+# it can look for the location of the definition of the queries and mutations
+GRAPHENE = {
+    "SCHEMA": "EjemploApi.schema.schema"
+}
