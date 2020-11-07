@@ -95,5 +95,23 @@ python .\manage.py startapp apiGraph
 # GraphQL is indepennt of a particular programming language. It has library for django (https://docs.graphene-python.org/projects/django/en/latest/)
 # We must install the library for django: pip install graphene-django
 
+# After many configurations, let's try our graphql API
+python .\manage.py runserver
+
+# In http://127.0.0.1:8000/ now the graphql appears
+
+# In http://127.0.0.1:8000/graphql/ we can se the GraphiQL interface to execute queries easier while developing
+
+# In the GraphiQL interface we can click Docs to see all the queries and mutations configurated.
+
+# In the GraphiQL interface we can easily query the clients we have already configured by this query:
+#{
+#  allClientes{
+#    numDoc,
+#    tipoNumDoc,
+#    grupoRiesgo,
+#    capacidadPago
+#  }
+#}
 
 pip freeze>requirements.txt
