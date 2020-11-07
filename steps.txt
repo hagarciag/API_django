@@ -36,6 +36,16 @@ python .\manage.py makemigrations
 # It creates en sqllite
 python .\manage.py migrate
 
+# Create a superuser in the sqllite, user=password=hagarcia
+python .\manage.py createsuperuser
 
+# Launcho the website
+python .\manage.py runserver
+
+# Go to the admin website and get logged in using the user and password chosen previously:
+http://127.0.0.1:8000/admin/login/?next=/admin/ 
+
+# In the website admin I'll be abl to perform different admin tasks and also manage the Cliente model I registed.
+# I'll create 4 clients
 
 pip freeze>requirements.txt
