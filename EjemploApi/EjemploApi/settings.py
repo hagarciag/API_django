@@ -25,6 +25,7 @@ SECRET_KEY = '$-+fpz_+*v=u&35$n&@jark-4=+^f!6tm3pv0dg95n1#8@s!7_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Domains where the application would run
 ALLOWED_HOSTS = []
 
 
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+# Abour security
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

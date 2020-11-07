@@ -10,3 +10,8 @@ pip install Django==2.1.5
 
 # Create a project
 django-admin startproject EjemploApi
+
+cd EjemploApi/
+
+python .\manage.py runserver
+
