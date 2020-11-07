@@ -56,6 +56,20 @@ python .\manage.py runserver
 
 # If I go to http://127.0.0.1:8000/apiRest/ ... I can see the information of all the clients I have in my table.
 
+# Postman (https://www.postman.com/downloads/) it's an option to make requests to the API
+# This tool has the option "code" which shows how a client could make requests to the API. This shows the query code for different languages
+
+############# Query client by POST method
+# First it is necesary to configure POST method in views.py.
+# After that I shutdown the server and start it again and now at the end of http://127.0.0.1:8000/apiRest/  => I think is not necessary to restart, Actually it seems to be applied to the running server immediately
+# I can see a new section to invoque by POST.
+
+# In the content box I can put the fields required by the POST method (tipo_num_doc and num_doc) to make the request to the POST API
+#{
+#        "num_doc": "678",
+#        "tipo_num_doc": "C"
+#}
+
 
 
 pip freeze>requirements.txt

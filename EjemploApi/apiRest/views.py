@@ -13,3 +13,19 @@ class ClienteView (views.APIView):
         # It is like a traslator, traslates the db info to JSON format
         serializer=ClienteSerializer(qs, many= True)
         return Response(serializer.data)
+
+    def post(self, request, *args, **kwargs):
+            #Capturamos los valores de entrada
+            try:
+                num_doc=request.data['num_doc']
+                tipo_num_doc=request.data['tipo_num_doc']
+            except:
+                # Error code 400 is returned because the request had a problem. Error codes: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+                return Response({},status= status.HTTP_400_BAD_REQUEST)
+            # filter is like a WHERE of the SQL. If many records are returned, only one es taken ([:1])
+            qs=Cliente.objects.filter(num_doc=num_doc, tipo_num_doc=tipo_num_doc)[:1]
+            if len(qs)!=0:
+                serializer=ClienteSerializer(qs, many=True)
+                return Response(serializer.data)
+            # Error code 204 is returned because it is the code for non-content returned. Error codes: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+            return  Response({},status= status.HTTP_204_NO_CONTENT)
