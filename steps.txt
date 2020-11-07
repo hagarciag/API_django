@@ -193,7 +193,34 @@ http://127.0.0.1:8000/graphql/
     "query": "query multiple_request($numDoc:String, $tipoNumDoc:String){ someClientes(numDoc:$numDoc, tipoNumDoc: $tipoNumDoc){ numDoc, grupoRiesgo }, allClientes{ numDoc, grupoRiesgo, capacidadPago } }"
 }
 
+# Query mutations in graphiql
+mutation {
+createCliente(numDoc:"4561238", tipoNumDoc:"1", grupoRiesgo: "3", capacidadPago: 1500000){
+  cliente{
+    numDoc
+    tipoNumDoc
+    grupoRiesgo
+    capacidadPago
+  }
+}  
+}
 
+# Response
+{
+  "data": {
+    "createCliente": {
+      "cliente": {
+        "numDoc": "4561238",
+        "tipoNumDoc": "1",
+        "grupoRiesgo": "3",
+        "capacidadPago": 1500000
+      }
+    }
+  }
+}
+
+# GraphQL: The client decides which information to obtain (dynamic), only needs a query
+# REST: The server decides what to return (static), It is required to have multiple endpoints
 
 
 

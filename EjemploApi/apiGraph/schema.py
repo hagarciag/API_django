@@ -17,3 +17,28 @@ class Query(graphene.ObjectType):
 
     def resolve_some_clientes(self, info, **kwargs):
         return Cliente.objects.filter(num_doc=kwargs.get('num_doc'), tipo_num_doc=kwargs.get('tipo_num_doc'))
+
+class CreateCliente(graphene.Mutation):
+    cliente=graphene.Field(ClienteType)
+
+    class Arguments:
+        num_doc = graphene.String()
+        tipo_num_doc = graphene.String()
+        grupo_riesgo = graphene.String()
+        capacidad_pago = graphene.Float()
+
+    def mutate(self,info,**kwargs):
+        cliente = Cliente(
+            num_doc = kwargs.get('num_doc'),
+            tipo_num_doc = kwargs.get('tipo_num_doc'),
+            grupo_riesgo = kwargs.get('grupo_riesgo'),
+            capacidad_pago = kwargs.get('capacidad_pago')
+        )
+        # Save in the database
+        cliente.save()
+        return CreateCliente(cliente=cliente)
+
+class Mutation(graphene.ObjectType):
+    create_cliente = CreateCliente.Field()
+    # I could include more operations here, I would need to create other classes similar to CreateCliente
+    

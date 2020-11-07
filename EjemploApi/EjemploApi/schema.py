@@ -6,9 +6,9 @@ import apiGraph.schema
 class Query(apiGraph.schema.Query):
     pass
 
-#class Mutation(apiGraph.schema.Mutation):
-#    pass
+class Mutation(apiGraph.schema.Mutation):
+    pass
 
 # It define that a query of Graphql is define by the name 'Query'
-schema = graphene.Schema(query=Query)
-#schema = graphene.Schema(query=Query, mutation=Mutation)
+#schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)
