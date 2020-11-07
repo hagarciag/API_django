@@ -48,4 +48,14 @@ http://127.0.0.1:8000/admin/login/?next=/admin/
 # In the website admin I'll be abl to perform different admin tasks and also manage the Cliente model I registed.
 # I'll create 4 clients
 
+# A view is configured an its URL registered. Now test
+python .\manage.py runserver
+
+# Now it shows Page not found (404), and as I have DEBUG=True in setting.py then it shows the URIs of APIs configured.
+# In an production environment DEBUG should be False
+
+# If I go to http://127.0.0.1:8000/apiRest/ ... I can see the information of all the clients I have in my table.
+
+
+
 pip freeze>requirements.txt
