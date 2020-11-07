@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # our apps
+    'apiRest',
+
+    # third party apps
+    'rest_framework'
 ]
 # Abour security
 MIDDLEWARE = [

@@ -17,10 +17,25 @@ python .\manage.py runserver
 
 #CTL+C to stop the server
 
-#Let's create the a first app for trditional REST using rest framework
+#Let's create the a first app for trditional REST using rest framework (https://www.django-rest-framework.org/)
 
 # help to see all the options
 python .\manage.py help
 
 # Let's use startapp to create the app "apiRest"
 python .\manage.py startapp apiRest
+
+# To use rest framework we must install some things
+pip install djangorestframework 
+
+# Go to all the models of all the apps I have registered and check which have been created and create them
+# It create the folder migrations with fields it should create in the db
+python .\manage.py makemigrations
+
+# Create a db with all the models. It includes others db to admin the db.
+# It creates en sqllite
+python .\manage.py migrate
+
+
+
+pip freeze>requirements.txt
