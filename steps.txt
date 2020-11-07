@@ -88,6 +88,12 @@ python .\manage.py runserver
 #Content-Type: application/json
 #Vary: Accept
 
+################### APIs of GraphQL
+# Let's create an API in GraphQL called "apiGraph"
+python .\manage.py startapp apiGraph
+
+# GraphQL is indepennt of a particular programming language. It has library for django (https://docs.graphene-python.org/projects/django/en/latest/)
+# We must install the library for django: pip install graphene-django
 
 
 pip freeze>requirements.txt

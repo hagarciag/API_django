@@ -41,9 +41,11 @@ INSTALLED_APPS = [
 
     # our apps
     'apiRest',
+    'apiGraph',
 
     # third party apps
-    'rest_framework'
+    'rest_framework',
+    "graphene_django"
 ]
 # Abour security
 MIDDLEWARE = [
